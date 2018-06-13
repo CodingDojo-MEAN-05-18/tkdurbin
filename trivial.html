@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Trivia Assignment</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$.get("https://opentdb.com/api.php?amount=5&category=21", questions);
+			function questions(data){
+				for (each in data.results){
+					$('#content').append("<p>" + data.results[each].question + "</p>");
+					$('#content').append("<button class='correct'>" + data.results[each].correct_answer + "</button><br>");
+					for (wrong in data.results[each].incorrect_answers){
+						$('#content').append("<button class='incorrect'>" + data.results[each].incorrect_answers[wrong] + "</button><br>");
+					};
+				};
+				console.log(data.results);
+			};
+			$(document).on('click', '#reveal_answer', function(){
+				$(".incorrect").remove();
+			});		
+		});
+	</script>
+</head>
+<body>
+	<button id='reveal_answer'>Reveal Answers</button>
+	<div id="content">
+	</div>
+</body>
+</html>
