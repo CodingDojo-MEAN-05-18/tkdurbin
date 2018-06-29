@@ -1,0 +1,30 @@
+<p>
+  booklist works!
+</p>
+<app-booknew[newBook]='onCreate($event)'></app-booknew>
+
+  <section>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Year</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor='let book of books' (click)='selectedBook(book)'>
+          <td>{{book.id}}</td>
+          <td>{{book.title | titleize:['the','a'] }}</td>
+          <td>{{book.author | titleize}}</td>
+          <td>{{book.year}}</td>
+          <td>Future Actions</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <app-bookdetail [book]='selectedBook'></app-bookdetail>

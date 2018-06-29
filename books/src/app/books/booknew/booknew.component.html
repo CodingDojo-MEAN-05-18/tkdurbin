@@ -1,0 +1,88 @@
+<p>
+  booknew works!
+</p>
+
+<section>
+  <fieldset>
+    <legend>Add a Book</legend>
+
+    {{ bookForm.valid | json }}
+
+    <form (submit)='bookForm.valid && onSubmit($event, bookForm)' #bookForm='ngForm'>
+      <div>
+        <label for="">Title </label>
+        <input type="text" name="title" [(ngModel)]='book.title' required #title='ngModel' minlength='3'> {{ title.errors || json }}
+
+        <div *ngIf='(title.touched || title.dirty) && title.errors'>
+          <div *ngIf='title.errors.required'>
+            You must enter a title
+          </div>
+          <div *ngIf='title.errors.minlength'>
+            Title must be at least {{title.errors.minlength.requiredLength}} characters. {{title.error.minlength.actualLength}} characters
+            is not enough.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="">Author</label>
+        <input type="text" name="author" [(ngModel)]='book.author' #author='ngModel' required minlength='3'>
+
+        <div *ngIf='(author.touched || author.dirty) && author.errors'>
+          <div *ngIf='author.errors.required'>
+            You must enter an author
+          </div>
+          <div *ngIf='author.errors.minlength'>
+            Author must be at least {{author.errors.minlength.requiredLength}} characters. {{author.error.minlength.actualLength}} characters
+            is not enough.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="">Pages</label>
+        <input type="number" name="pages" [(ngModel)]='book.pages' min='1' required>
+
+        <div *ngIf='(pages.touched || pages.dirty) && pages.errors'>
+          <div *ngIf='pages.errors.required'>
+            You must enter a pages
+          </div>
+          <div *ngIf='pages.errors.required'>
+            Pages must be at least 1. {{pages.error.minlength.actualLength}}
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="">Year</label>
+        <input type="number" name="year" [(ngModel)]='book.year' #year='ngModel' min='1500' max='2018' required>
+
+        <div *ngIf='(year.touched || year.dirty) && year.errors'>
+          <div *ngIf='year.min'>
+            {{year.min | json}} You must enter a year
+          </div>
+          <div *ngIf='year.errors.required'>
+            Year must be at least 4 characters. {{year.error.minlength.actualLength}} characters is not 4.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <label for="">Publisher</label>
+        <input type="text" name="publisher" [(ngModel)]='book.publisher' required #publisher='ngModel' minlength='3'>
+
+        <div *ngIf='(publisher.touched || publisher.dirty) && publisher.errors'>
+          <div *ngIf='publisher.errors.required'>
+            You must enter a publisher
+          </div>
+          <div *ngIf='publisher.errors.minlength'>
+            Publisher must be at least {{publisher.errors.minlength.requiredLength}} characters. {{publisher.error.minlength.actualLength}}
+            characters is not enough.
+          </div>
+        </div>
+      </div>
+
+      <button>Submit</button>
+    </form>
+  </fieldset>
+</section>
