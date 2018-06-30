@@ -5,8 +5,8 @@ import { Pipe, PipeTransform, Injectable } from '@angular/core';
 })
 @Injectable()
 export class TitleizePipe implements PipeTransform {
-  static skipWords = ['of', 'the', 'in', 'a'];
-  transform(value: string, args?: string[] | boolean) {
+  static skipWords = ['of', 'the', 'in', 'a', 'an'];
+  transform(value: string, args?: string[] | boolean): string {
     // console.log('value', value);
     if (typeof value !== 'string') {
       return value;
@@ -14,10 +14,10 @@ export class TitleizePipe implements PipeTransform {
     // const skipWords = ['of', 'the', 'in', 'a'];
     // const skipWords = TitleizePipe.skipWords;
     const skipWords = Array.isArray(args) ? args : TitleizePipe.skipWords;
-    const processSkipWords = args !== false;
+    const processSkipWords: boolean = args !== false;
 
     return value.replace(/\w[^-\s]*/g, (word, index: number) => {
-      console.log('wording', index);
+      console.log('wording', word, index);
       // if (skipWords.indexOf(word.toLowerCase()) !== -1) {
       if (processSkipWords && index && skipWords.includes(word.toLowerCase())) {
         return word.toLowerCase();
