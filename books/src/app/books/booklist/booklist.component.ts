@@ -34,7 +34,7 @@ export class BooklistComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngONDestroy() {
+  ngOnDestroy() {
     this.sub.unsubscribe();
   }
 

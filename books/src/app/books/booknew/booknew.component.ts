@@ -27,7 +27,9 @@ export class BooknewComponent implements OnInit, OnDestroy {
   ngOnInit() {}
 
   ngOnDestroy() {
-    this.sub.unsubscribe();
+    if (this.sub) {
+      this.sub.unsubscribe();
+    }
   }
 
   onSubmit(event: Event, form: NgForm) {

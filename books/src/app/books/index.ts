@@ -1,11 +1,11 @@
-import { BookNewComponent } from './booknew/booknew.component';
-import { BookListComponent } from './booklist/booklist.component';
-import { BookDetailComponent } from './bookdetail/bookdetail.component';
+import { BooknewComponent } from './booknew/booknew.component';
+import { BooklistComponent } from './booklist/booklist.component';
+import { BookdetailComponent } from './bookdetail/bookdetail.component';
 
 export const components: any[] = [
-  BookDetailComponent,
-  BookListComponent,
-  BookDetailComponent,
+  BookdetailComponent,
+  BooklistComponent,
+  BooknewComponent,
 ];
 
 export * from './bookdetail/bookdetail.component';

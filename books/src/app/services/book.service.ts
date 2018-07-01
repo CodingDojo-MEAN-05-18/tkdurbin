@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 // import { BOOKS } from '../data/bookdata';
 import { Book } from '../book';
-import { ENGINE_METHOD_DIGESTS } from 'constants';
 
 @Injectable({
   providedIn: 'root',
@@ -19,6 +18,9 @@ export class BookService {
     return this.http.get<Book[]>(this.base);
     // return this.http.get(this.base) as Observable<Book[]>;
     // return of(BOOKS);
+  }
+  getBook(id: string): Observable<Book> {
+    return this.http.get<Book>(`${this.base}/${id}`);
   }
 
   createBook(book: Book): Observable<Book> {
