@@ -1,0 +1,6 @@
+SimpleBehaviorSubject = { value: null, callbacks: [ ], subscribe: function(callback) { this.callbacks.push(callback); callback(this.value);
+}, next: function(val) { this.value = val; for(callback of this.callbacks){ callback(this.value); } } } SimpleBehaviorSubject.subscribe(
+(value) => console.log(`First subscribed callback, value: ${value}`) ) SimpleBehaviorSubject.subscribe( (value) => console.log(`Second
+subscribed callback, value: ${value}`) ) SimpleBehaviorSubject.subscribe( (value) => console.log(`Third subscribed callback,
+value: ${value}`) ) SimpleBehaviorSubject.next(`First Value`) SimpleBehaviorSubject.next(`Second Value`) SimpleBehaviorSubject.next(`Third
+Value`)

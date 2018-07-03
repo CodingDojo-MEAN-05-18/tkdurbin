@@ -9,11 +9,14 @@ import { AppComponent } from './app.component';
 // import { BookdetailComponent } from './books/bookdetail/bookdetail.component';
 import { TitleizePipe } from './titleize.pipe';
 import { SearchPipe } from './search.pipe';
-// import * as fromBooks from './books';
 
 // import { BookService } from './services/book.service';
 import * as fromServices from './services';
 import * as fromBooks from './books';
+import { AppRoutingModule } from './app-routing.module';
+import { NavComponent } from './nav/nav.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { BookResolve } from './resolvers';
 
 // TitleizePipe.skipWords = ['of'];
 
@@ -26,10 +29,12 @@ import * as fromBooks from './books';
     ...fromBooks.components,
     TitleizePipe,
     SearchPipe,
+    NavComponent,
+    NotFoundComponent,
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
   // providers: [BookService],
-  providers: [...fromServices.services],
+  providers: [...fromServices.services, BookResolve],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

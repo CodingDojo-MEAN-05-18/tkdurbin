@@ -5,6 +5,7 @@ import {
   EventEmitter,
   OnDestroy,
 } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 
@@ -22,7 +23,10 @@ export class BooknewComponent implements OnInit, OnDestroy {
 
   @Output() newBook = new EventEmitter<Book>();
 
-  constructor(private readonly bookService: BookService) {}
+  constructor(
+    private readonly bookService: BookService,
+    private router: Router
+  ) {}
 
   ngOnInit() {}
 
@@ -37,8 +41,9 @@ export class BooknewComponent implements OnInit, OnDestroy {
     console.log('submitting form', this.book);
 
     this.bookService.createBook(this.book).subscribe(book => {
-      console.log('book from api', book);
-      this.newBook.emit(book);
+      // console.log('book from api', book);
+      // this.createBook.emit(book);
+      this.router.navigateByUrl('/');
       this.book = new Book();
       form.reset();
     });

@@ -1,7 +1,7 @@
 <p>
   booklist works!
 </p>
-<app-booknew (newBook)='onCreate($event)'></app-booknew>
+<!--<app-booknew (newBook)='onCreate($event)'></app-booknew> -->
 
 <section>
   <table class="table table-striped">
@@ -31,7 +31,7 @@
     </thead>
 
     <tbody>
-      <tr *ngFor='let book of books | search: filter' (click)='selectedBook(book)'>
+      <tr *ngFor='let book of books | search: filter' (click)='selectedBook(book)' [routerLink]="book.id">
         <td>{{book.id}}</td>
         <td>{{book.title | titleize:['the','a'] }}</td>
         <td>{{book.author | titleize}}</td>
@@ -44,4 +44,4 @@
   </table>
 </section>
 
-<app-bookdetail [book]='selectedBook'></app-bookdetail>
+<!--<app-bookdetail [book]='selectedBook'></app-bookdetail>-->

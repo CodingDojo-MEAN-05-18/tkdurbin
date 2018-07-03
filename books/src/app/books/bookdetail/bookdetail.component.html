@@ -1,8 +1,9 @@
-<p>
-  bookdetail works!
-</p>
+<section>
+  <!--*ngIf='book'>-->
+  <div *ngIf='errorMessage'>
+    <p> {{errorMessage }}</p>
 
-<section> *ngIf='book'>
+  </div>
   <fieldset>
     <legend>Selected Book</legend>
     <div>
