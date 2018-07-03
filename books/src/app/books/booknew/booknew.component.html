@@ -1,17 +1,13 @@
-<p>
-  booknew works!
-</p>
-
 <section>
   <fieldset>
     <legend>Add a Book</legend>
 
-    {{ form.valid | json }}
+    {{ bookForm.value | json }}
 
-    <form (submit)='form.valid && onSubmit($event, form)' #form='ngForm'>
+    <form (submit)='bookForm.valid && onSubmit($event, bookForm)' #booForm='ngForm'>
       <div>
         <label for="">Title </label>
-        <input type="text" name="title" [(ngModel)]='book.title' required #title='ngModel ' minlength='3 '> {{ title.errors || json }}
+        <input type="text" name="title" [(ngModel)]='book.title' required #title='ngModel' minlength='3'> {{ title.errors || json }}
 
         <div *ngIf='(title.touched || title.dirty) && title.errors'>
           <div *ngIf='title.errors.required '>
@@ -26,7 +22,7 @@
 
       <div>
         <label for="">Author</label>
-        <input type="text" name="author" [(ngModel)]='book.author' #author='ngModel ' required minlength='3 '>
+        <input type="text" name="author" [(ngModel)]='book.author' #author='ngModel' required minlength='3 '>
 
         <div *ngIf='(author.touched || author.dirty) && author.errors'>
           <div *ngIf='author.errors.required '>
@@ -55,7 +51,7 @@
 
       <div>
         <label for="">Year</label>
-        <input type="number" name="year" [(ngModel)]='book.year' #year='ngModel ' min='1500 ' max='2018 ' required>
+        <input type="number" name="year" [(ngModel)]='book.year' #year='ngModel' min='1500' max='2018' required>
 
         <div *ngIf='(year.touched || year.dirty) && year.errors'>
           <div *ngIf='year.min '>
@@ -69,7 +65,7 @@
 
       <div>
         <label for="">Publisher</label>
-        <input type="text" name="publisher" [(ngModel)]='book.publisher' required #publisher='ngModel ' minlength='3 '>
+        <input type="text" name="publisher" [(ngModel)]='book.publisher' required #publisher='ngModel' minlength='3'>
 
         <div *ngIf='(publisher.touched || publisher.dirty) && publisher.errors'>
           <div *ngIf='publisher.errors.required '>
