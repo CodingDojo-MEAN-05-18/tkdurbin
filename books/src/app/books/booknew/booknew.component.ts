@@ -40,7 +40,7 @@ export class BooknewComponent implements OnInit, OnDestroy {
     event.preventDefault();
     console.log('submitting form', this.book);
 
-    this.bookService.createBook(this.book).subscribe(book => {
+    this.sub = this.bookService.createBook(this.book).subscribe(book => {
       // console.log('book from api', book);
       // this.createBook.emit(book);
       this.router.navigateByUrl('/');

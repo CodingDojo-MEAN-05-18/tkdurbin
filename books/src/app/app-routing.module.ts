@@ -28,8 +28,8 @@ const routes: Routes = [
         component: fromBooks.BooknewComponent,
       },
       {
-        // path: 'books/:bookID',
-        path: ':bookID',
+        // path: 'books/:id',
+        path: ':book/:id',
         component: fromBooks.BookdetailComponent,
         resolve: {
           book: BookResolve,

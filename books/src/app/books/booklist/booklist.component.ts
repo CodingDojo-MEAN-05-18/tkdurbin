@@ -14,10 +14,10 @@ import { TitleizePipe } from '../../titleize.pipe';
   providers: [TitleizePipe],
 })
 export class BooklistComponent implements OnInit, OnDestroy {
-  selectedBook: Book;
   books: Array<Book> = [];
   filter: Book = new Book(false);
   sub: Subscription;
+  selectedBook: Book;
 
   constructor(
     private titleize: TitleizePipe,
