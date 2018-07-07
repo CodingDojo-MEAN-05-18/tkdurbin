@@ -15,9 +15,9 @@ export class BookdetailComponent implements OnInit {
   errorMessage: string;
 
   constructor(
-    private bookService: BookService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private bookService: BookService
   ) {}
 
   ngOnInit() {
@@ -46,8 +46,25 @@ export class BookdetailComponent implements OnInit {
         }
       );*/
     this.route.paramMap
-      .pipe(switchMap(params => this.bookService.getBook(params.get('id'))))
-      .subscribe(book => (this.book = book));
+      .pipe(
+        switchMap(params => {
+          const id = params.get('id');
+          console.log(id);
+          return this.bookService.getBook(id);
+        })
+      )
+      // this.bookService.getBook(params.get('id'))))
+      .subscribe(
+        book => (this.book = book),
+        error => {
+          console.log('error', error);
+          this.errorMessage = error.error;
+
+          setTimeout(() => {
+            this.router.navigateByUrl('/');
+          }, 3000);
+        }
+      );
     this.book = this.route.snapshot.data.book;
   }
 }

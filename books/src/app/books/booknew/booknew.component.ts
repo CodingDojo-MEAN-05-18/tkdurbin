@@ -44,8 +44,8 @@ export class BooknewComponent implements OnInit, OnDestroy {
       // console.log('book from api', book);
       // this.createBook.emit(book);
       this.router.navigateByUrl('/');
-      this.book = new Book();
-      form.reset();
+      // this.book = new Book();
+      // form.reset();
     });
 
     // this.books.push(this.book);

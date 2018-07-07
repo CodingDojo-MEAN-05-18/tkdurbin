@@ -4,7 +4,7 @@
 
     {{ bookForm.value | json }}
 
-    <form (submit)='bookForm.valid && onSubmit($event, bookForm)' #booForm='ngForm'>
+    <form (submit)='bookForm.valid && onSubmit($event, bookForm)' #bookForm='ngForm'>
       <div>
         <label for="">Title </label>
         <input type="text" name="title" [(ngModel)]='book.title' required #title='ngModel' minlength='3'> {{ title.errors || json }}

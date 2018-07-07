@@ -1,11 +1,13 @@
 export class Book {
-  id: number;
+  // id: number;
+  _id: string;
   title: string;
   author: string;
   pages: number;
   year: number;
   publisher: string;
 
+  // constructor() {
   constructor(createId = true) {
     // if (createId) {
     // }

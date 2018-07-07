@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import * as fromBooks from './books';
+import { HomeComponent } from './home/home.component';
 import { BooklistComponent } from './books/booklist/booklist.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { BookResolve } from './resolvers/index';
@@ -10,9 +11,10 @@ import { BookResolve } from './resolvers/index';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'books',
-    pathMatch: 'full',
+    // redirectTo: 'books',
+    // pathMatch: 'full',
     // component: fromBooks.BooklistComponent,
+    component: HomeComponent,
   },
   {
     path: 'books',
@@ -44,7 +46,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {enableTracing: true})],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

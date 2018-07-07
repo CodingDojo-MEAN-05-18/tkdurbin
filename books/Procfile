@@ -1,0 +1,5 @@
+"angular: ng serve -pc --proxy-config"
+angular: ng serve -pc proxy.conf.jason --open
+"angular: ng buid -w"
+express: nodemon
+"mongo: mongod"

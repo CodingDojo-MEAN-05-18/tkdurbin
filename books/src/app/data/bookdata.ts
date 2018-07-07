@@ -1,7 +1,7 @@
 import { Book } from '../book';
 
 export const BOOKS: Book[] = [
-  {
+  /*{
     id: randomId(),
     title: 'Stranger in a Strange Land',
     author: 'Rober Heinlein',
@@ -25,7 +25,7 @@ export const BOOKS: Book[] = [
     publisher: 'Tor Books',
     year: 1992,
     pages: 391,
-  },
+  },*/
 ];
 
 function randomId() {

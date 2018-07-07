@@ -3,7 +3,7 @@ import { Subscription } from 'rxjs';
 
 import { Book } from '../../book';
 // import { BOOKS } from '../../data/bookdata';
-import { BookService } from '../../services';
+import { BookService, AuthService } from '../../services';
 
 import { TitleizePipe } from '../../titleize.pipe';
 
@@ -15,13 +15,15 @@ import { TitleizePipe } from '../../titleize.pipe';
 })
 export class BooklistComponent implements OnInit, OnDestroy {
   books: Array<Book> = [];
-  filter: Book = new Book(false);
+  // filter: Book = new Book(false);
   sub: Subscription;
+  authed: boolean;
   selectedBook: Book;
 
   constructor(
     private titleize: TitleizePipe,
-    private bookService: BookService
+    private bookService: BookService,
+    private auth: AuthService
   ) {}
 
   ngOnInit() {
@@ -32,6 +34,7 @@ export class BooklistComponent implements OnInit, OnDestroy {
         book.author = this.titleize.transform(book.author);
       });
     });
+    this.auth.authorized$.subscribe(authed => (this.authed = authed));
   }
 
   ngOnDestroy() {
@@ -49,24 +52,24 @@ export class BooklistComponent implements OnInit, OnDestroy {
       this.selectedBook = book;
     }*/
   }
-  onCreate(event: Book) {
+  onCreate(book: Book) {
     console.log('creating book', event);
-    this.books.push(event);
+    this.books.push(book);
   }
 
-  clearFilter(): void {
-    this.filter = new Book(false);
-  }
+  // clearFilter(): void {
+  // this.filter = new Book(false);
+  // }
   onClick(event: Event) {
-    console.log('stopping prop', event);
     event.stopPropagation();
+    console.log('stopping prop', event);
   }
   onDelete(bookToDelete: Book) {
     console.log('deleting book');
     this.bookService.deleteBook(bookToDelete).subscribe(deletedBook => {
-      console.log('deleted deletedBook', deletedBook);
+      console.log('deleted', deletedBook);
 
-      this.books = this.books.filter(book => book.id !== deletedBook.id);
+      this.books = this.books.filter(book => book._id !== deletedBook._id);
     });
   }
 }

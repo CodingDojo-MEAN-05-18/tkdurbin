@@ -11,7 +11,8 @@ import { Book } from '../book';
   providedIn: 'root',
 })
 export class BookService {
-  private base = 'http://5948bce6d49df0011102cfc.mockapi.io/books';
+  // private base = 'http://5948bce6d49df0011102cfc.mockapi.io/books';
+  private base = '/api/books';
 
   constructor(private http: HttpClient) {}
 
@@ -28,6 +29,6 @@ export class BookService {
     return this.http.post<Book>(this.base, book);
   }
   deleteBook(book: Book): Observable<Book> {
-    return this.http.delete<Book>(`${this.base}/${book.id}`);
+    return this.http.delete<Book>(`${this.base}/${book._id}`);
   }
 }
