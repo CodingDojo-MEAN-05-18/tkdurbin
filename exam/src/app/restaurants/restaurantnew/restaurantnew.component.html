@@ -1,0 +1,19 @@
+<section>
+  <h1>Let's eat</h1>
+  <fieldset>
+    <legend>Register a restaurant</legend>
+    {{restaurantForm.value | json }}
+    <form (submit)='onSubmit($event, restaurantForm)' #restaurantForm='ngForm'>
+      <div>
+        <label for="">Restaurant name:</label>
+        <input type="text" name='name' [(ngModel)]='restaurant.name' required>
+      </div>
+      <div>
+        <label for="">Cuisine</label>
+        <input type="text" name='cuisine' [(ngModel)]='restaurant.cuisine'>
+      </div>
+      <button *ngIf='restaurantForm.valid'>Register</button>
+      <button>Cancel</button>
+    </form>
+  </fieldset>
+</section>

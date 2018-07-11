@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const bokSchema = new Schema({
+const bookSchema = new Schema(
+  {
   title: {
     type: String,
     required: [true, 'provide a book title'],

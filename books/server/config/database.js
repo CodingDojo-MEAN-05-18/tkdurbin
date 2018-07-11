@@ -11,7 +11,7 @@ mongoose.connection.on('connected', () => console.log('Connected to MongoDB book
 
 fs.readdirSync(modelsPath).forEach(file => {
   // if (file.indexOf('.js') > 0) {
-  if (reg, test(file)) {
+  if (reg.test(file)) {
     require(path.join(modelsPath, file));
   }
 });

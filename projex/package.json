@@ -1,0 +1,25 @@
+{
+  "name": "projex",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodingDojo-MEAN-05-18/tkdurbin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CodingDojo-MEAN-05-18/tkdurbin/issues"
+  },
+  "homepage": "https://github.com/CodingDojo-MEAN-05-18/tkdurbin#readme",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3"
+  }
+}

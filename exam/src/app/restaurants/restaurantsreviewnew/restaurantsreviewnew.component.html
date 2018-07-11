@@ -1,0 +1,23 @@
+<section>
+  <h1>Let's eat</h1>
+  <fieldset>
+    <legend>Write a review for restaurant</legend>
+    {{restaurantForm.value | json }}
+    <form (submit)='onSubmit($event, restaurantForm)' #restaurantForm='ngForm'>
+      <div>
+        <label for="">Your name:</label>
+        <input type="text" name='reviewer' [(ngModel)]='review.reviewer' required>
+      </div>
+      <div>
+        <label for="">Stars</label>
+        <input type="text" name='rating' [(ngModel)]='review.rating'>
+      </div>
+      <div>
+        <label for="">Your Review</label>
+        <input type="text" name='content' [(ngModel)]='review.content'>
+      </div>
+      <button>Cancel</button>
+      <button *ngIf='reviewForm.valid'>Submit</button>
+    </form>
+  </fieldset>
+</section>

@@ -1,0 +1,34 @@
+<!--<app-restaurantnew (newRestaurant)='onCreate($event)'></app-restaurantnew>-->
+
+<section>
+  <h1>Let's eat</h1>
+  <button routerLink="/restaurants/new">New restaurant</button>
+  <table class="table table-striped">
+    <thead>
+      <th> id</th>
+      <th>Restaurant</th>
+      <th>Cuisine</th>
+      <th>Actions available</th>
+    </thead>
+
+    <tbody>
+      <tr *ngFor='let restaurant of restaurants'>
+        <!--(click)='onSelect(restaurant)' [routerLink]='restaurant._id'>-->
+        <td>{{ restaurant._id }}</td>
+        <td>{{ restaurant.name }}</td>
+        <td>{{ restaurant.cuisine }}</td>
+        <td>
+          <button routerLink="/restaurants/review">Read reviews</button>
+          <button routerLink="/restaurants/newreview">Update</button>
+        </td>
+        <td (click)='onClick($event)'>
+          <button *ngIf='authed; else login' (click)='onDelete(restaurant)'>DELETE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+<!--<app-restaurantdetail [restaurant]='editRestaurant'></app-restaurantdetail>-->
+<app-restaurantsreview></app-restaurantsreview>
