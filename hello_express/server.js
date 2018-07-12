@@ -30,7 +30,7 @@ app.use(express.static(__dirname + "/static"));
 // try printing out __dirname using console.log to see what it is and why we use it
 
 // This sets the location where express will look for the ejs views
-app.set('views', __dirname + '/views'); 
+app.set('views', __dirname + '/views');
 // Now lets set the view engine itself so that express knows that we are using ejs as opposed to another templating engine like jade
 app.set('view engine', 'ejs');
 

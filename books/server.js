@@ -30,7 +30,7 @@ app
   .use(express.static(path.join(__dirname, 'dist/public')))
   .use(session(sessionConfig))
   .use(cookieParser('asldkfjoiweujkl'))
-  .use('/api', require('.server/routes'))
-  .use(require('./serve/routes/catch-all.route'));
+  .use('/api', require('./server/routes'))
+  .use(require('./server/routes/catch-all.route'));
 
 app.listen(port, () => console.log(`Express server listening on port ${port}`));

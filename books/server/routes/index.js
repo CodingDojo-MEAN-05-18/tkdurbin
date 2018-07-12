@@ -5,4 +5,4 @@ const router = require('express').Router();
 
 module.exports = router
   .use('/auth', authRoutes)
-  .use('/books', bookRoute);
+  .use('/books', bookRoutes);
