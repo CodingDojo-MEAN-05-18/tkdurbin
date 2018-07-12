@@ -15,7 +15,7 @@ import { TitleizePipe } from '../../titleize.pipe';
 })
 export class BooklistComponent implements OnInit, OnDestroy {
   books: Array<Book> = [];
-  // filter: Book = new Book(false);
+  filter: Book = new Book(false);
   sub: Subscription;
   authed: boolean;
   selectedBook: Book;

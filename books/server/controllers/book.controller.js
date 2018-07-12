@@ -32,7 +32,7 @@ module.exports = {
   },
   destroy(request, response) {
     Book.findByIdAndRemove(request.params.book_id)
-       .then(book => respons.json(book))
+       .then(book => response.json(book))
        .catch(console.log);
   },
 

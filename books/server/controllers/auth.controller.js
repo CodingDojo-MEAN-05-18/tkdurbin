@@ -47,6 +47,6 @@ function completeLogin(request, response, user) {
   delete request.session.user.password;
 
   response.cookie('userID', user._id.toString());
-  response.cookie('expiration', Date.now() = 86400 * 1000);
+  response.cookie('expiration', Date.now() + 86400 * 1000);
   response.json(user);
 }
