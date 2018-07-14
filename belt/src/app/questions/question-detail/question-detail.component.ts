@@ -40,9 +40,9 @@ export class QuestionDetailComponent implements OnInit {
 
           this.errorMessage = error.error;
 
-          setTimeout(() => {
-            this.router.navigateByUrl('/');
-          }, 3000);
+          // setTimeout(() => {
+            // this.router.navigateByUrl('/');
+          // }, 3000);
       }
     );
   }

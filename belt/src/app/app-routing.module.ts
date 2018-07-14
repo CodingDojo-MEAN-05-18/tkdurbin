@@ -14,10 +14,10 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: 'questions',
+    path: '',
     children: [
       {
-        path: '',
+        path: 'questions',
         component: fromQuestions.QuestionListComponent,
       },
       {
@@ -28,6 +28,14 @@ const routes: Routes = [
       {
         path: ':id',
         component: fromQuestions.QuestionDetailComponent,
+      },
+      {
+        path: 'answer/new/:id',
+        component: fromQuestions.QuestionAnswerComponent,
+      },
+      {
+        path: 'answer/:id',
+        component: fromQuestions.QuestionAnswerComponent,
       },
     ],
   },

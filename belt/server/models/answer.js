@@ -3,6 +3,10 @@ const { Schema } = mongoose;
 
 const answerSchema = new Schema(
   {
+    author: {
+      type: String,
+      trim: true,
+    },
     answer: {
       type: String,
       required: [true, 'provide a question'],
@@ -11,6 +15,9 @@ const answerSchema = new Schema(
     details: {
       type: String,
       trim: true,
+    },
+    likes: {
+      type: String,
     },
   },
   {

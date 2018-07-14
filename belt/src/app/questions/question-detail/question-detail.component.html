@@ -1,17 +1,28 @@
 <section>
+  <a routerLink='/questions'>Home</a>
+
+  <button>Answer the Question</button>
+  <a href>Logout</a>
+
   <fieldset>
 
     <div *ngIf='errorMessage'>
       <p>{{errorMessage}}</p>
     </div>
-    <legend>Selected Question</legend>
+    <legend> {{question?.query}}</legend>
+    <p>{{question?.description}}</p>
 
-    <div>
-      <p>ID: {{ question?._id }}</p>
-      <p>query: {{ question?.query }}</p>
-      <p>answer: {{ question?.answer}} </p>
-      <p> {{ answer?.likecount }}</p>
-      <button>Like</button>
-    </div>
+    <tbody>
+      <tr *ngFor='let answer of answers'>
+        <td>{{ answer.author }}</td>
+        <td>{{ answer.content }}</td>
+        <td>{{ answer.details }}</td>
+        <td>{{ answer.likes }}</td>
+        <td (click)='onClick($event)'>
+          <button(click)='onLike(answer)'>Like</button>
+        </td>
+      </tr>
+    </tbody>
+
   </fieldset>
 </section>

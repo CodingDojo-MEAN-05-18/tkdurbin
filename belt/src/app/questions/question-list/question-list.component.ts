@@ -4,6 +4,7 @@ import { Question } from '../../question';
 
 import { QuestionService, AuthService } from '../../services';
 
+import { User } from '../../user';
 
 @Component({
   selector: 'app-question-list',

@@ -33,7 +33,7 @@ export class QuestionNewComponent implements OnInit {
   ngOnInit() {
   }
 
-  ngOnDestroy() {
+  OnDestroy() {
     if (this.sub) {
       this.sub.unsubscribe();
     }
@@ -46,7 +46,7 @@ export class QuestionNewComponent implements OnInit {
     this.sub = this.questionService.createQuestion(this.question).subscribe(question => {
       console.log('question from api', question);
 
-      this.router.navigateByUrl('/');
+      this.router.navigateByUrl('/questions');
     });
   }
 }

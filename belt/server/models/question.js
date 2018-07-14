@@ -12,6 +12,10 @@ const questionSchema = new Schema(
       type: String,
       trim: true,
     },
+    answer: {
+      type: String,
+      trim: true,
+    }
   },
   {
     timestamps: true,

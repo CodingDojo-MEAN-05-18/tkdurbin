@@ -1,26 +1,26 @@
 <section>
-  <h1>Hi {{user.name}}! </h1>
-  <button>Add a Question</button>
-  <button>Logout</button>
+  <h1>Hi! </h1>
+  <a routerLink='/new'>Add a Question</a>
+  <a href>Logout</a>
   <p>Search</p>
   <table class="table table-striped">
     <thead>
-      <th>ID</th>
       <th>Question</th>
       <th>Answers</th>
       <th>Action</th>
     </thead>
 
     <tbody>
-      <tr *ngFor='let question of questions' (click)='onSelect(question)' [routerLink]='question._id'>
-        <td>{{ question._id }}</td>
+      <tr *ngFor='let question of questions'>
         <td>{{ question.query }}</td>
-        <td>{{ question.answerqty }}</td>
+        <td>{{ question.description }}</td>
         <td>
-          <button>Show</button>
+          <a [routerLink]='question._id'>Show</a>
+          //
+          <a routerLink=":id/new_answer">Answer</a>
         </td>
-        <td>
-          <button>Answer</button>
+        <td (click)='onClick($event)'>
+          <button *ngIf='authed; else login' (click)='onDelete(book)'>DELETE</button>
         </td>
       </tr>
     </tbody>
