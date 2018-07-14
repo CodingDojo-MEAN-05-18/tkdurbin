@@ -1,0 +1,15 @@
+<section>
+  <button>Home</button>
+  <button>Logout</button>
+  <fieldset>
+    <legend>Q&A</legend>
+    {{ landingForm.value | json }}
+    <form (submit)='onSubmit($event, landingForm)' #landingForm='ngForm'>
+      <div>
+        <label for="">Name:</label>
+        <input type="text" name='name' [(ngModel)]='session.name' required>
+      </div>
+      <button *ngIf='landingForm.valid'>Enter</button>
+    </form>
+  </fieldset>
+</section>

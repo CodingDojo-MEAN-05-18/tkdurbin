@@ -22,12 +22,12 @@ module.exports = {
   },
   show(request, response) {
     Book.findById(request.params.book_id)
-      .then(book => respons.json(book))
+      .then(book => response.json(book))
       .catch(console.log);
   },
   update(request, response) {
     Book.findByIdAndUpdate(request.params.book_id, request.body, { new : true})
-      .then(book => respons.json(book))
+      .then(book => response.json(book))
       .catch(console.log)
   },
   destroy(request, response) {

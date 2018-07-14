@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(user: User) {
     this.auth.register(user).subscribe(() => {
       this.router.navigateByUrl('books');
+      // }, error => {
     });
   }
 }

@@ -1,0 +1,19 @@
+<!--<section *ngIf='restaurant'>-->
+<section>
+  <h1>Let's eat</h1>
+  <fieldset>
+    <div *ngIf='errorMessage'>
+      <p>{{errorMessage}}</p>
+    </div>
+    <legend>Edit a restaurant</legend>
+
+    <div>
+      <p>ID: {{ restaurant?._id }}</p>
+      <p>Restaurant name: {{ restaurant?.name }}</p>
+      <p>Cuisine type: {{ restaurant?.cuisine }}</p>
+
+      <button>Cancel</button>
+      <button *ngIf='reviewForm.valid'>Edit</button>
+    </div>
+  </fieldset>
+</section>

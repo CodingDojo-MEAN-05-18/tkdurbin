@@ -1,0 +1,17 @@
+<nav>
+  <ul>
+    <li *ngIf='!loggedIn'>
+      <a routerLink="/restaurants">Restaurants</a>
+    </li>
+
+    <li>
+      <a routerLink="restaurants/new">Create Restaurant</a>
+    </li>
+
+    <li *ngIf='loggedIn'>
+      <button (click)=logout()>
+        Logout
+      </button>
+    </li>
+  </ul>
+</nav>

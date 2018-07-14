@@ -1,0 +1,17 @@
+<section>
+  <fieldset>
+
+    <div *ngIf='errorMessage'>
+      <p>{{errorMessage}}</p>
+    </div>
+    <legend>Selected Question</legend>
+
+    <div>
+      <p>ID: {{ question?._id }}</p>
+      <p>query: {{ question?.query }}</p>
+      <p>answer: {{ question?.answer}} </p>
+      <p> {{ answer?.likecount }}</p>
+      <button>Like</button>
+    </div>
+  </fieldset>
+</section>

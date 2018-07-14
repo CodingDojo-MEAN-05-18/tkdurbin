@@ -11,9 +11,6 @@ import { BookResolve } from './resolvers/index';
 const routes: Routes = [
   {
     path: '',
-    // redirectTo: 'books',
-    // pathMatch: 'full',
-    // component: fromBooks.BooklistComponent,
     component: HomeComponent,
   },
   {
