@@ -3,7 +3,7 @@
   <a routerLink='/new'>Add a Question</a>
   <a href>Logout</a>
   <p>Search</p>
-  <table class="table table-striped">
+  <table border=1>
     <thead>
       <th>Question</th>
       <th>Answers</th>
@@ -20,7 +20,7 @@
           <a routerLink=":id/new_answer">Answer</a>
         </td>
         <td (click)='onClick($event)'>
-          <button *ngIf='authed; else login' (click)='onDelete(book)'>DELETE</button>
+          <button *ngIf='authed; else login' (click)='onDelete(question)'>DELETE</button>
         </td>
       </tr>
     </tbody>

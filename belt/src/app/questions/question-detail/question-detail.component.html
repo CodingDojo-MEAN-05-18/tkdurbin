@@ -1,7 +1,7 @@
 <section>
   <a routerLink='/questions'>Home</a>
 
-  <button>Answer the Question</button>
+  <a routerLink='/questions/:.id/new_answer'>Answer the Question</a>
   <a href>Logout</a>
 
   <fieldset>
@@ -19,7 +19,7 @@
         <td>{{ answer.details }}</td>
         <td>{{ answer.likes }}</td>
         <td (click)='onClick($event)'>
-          <button(click)='onLike(answer)'>Like</button>
+          <button>Like</button>
         </td>
       </tr>
     </tbody>

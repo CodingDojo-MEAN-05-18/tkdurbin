@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { Question } from '../question';
+import { Answer } from '../answer';
+
 
 @Injectable()
 export class QuestionService {
@@ -26,15 +28,5 @@ export class QuestionService {
     return this.http.delete<Question>(`${this.base}/${question._id}`);
   }
 
-  // createAnswer(Answer: answer): Observable<Answer> {
-    // return this.http.post<Answer>(this.base, answer);
-  // }
-//
-  // getAnswers(): Observable<Answer[]> {
-    // return this.http.get<Answer[]>(${this.base}/answer/${question._id}`);
-  // }
-  //
-  // getAnswer(id: string): Observable<Answer> {
-  // return this.http.get<Answer>(`${this.base}/answer/${id}`);
-  // }
+
 }

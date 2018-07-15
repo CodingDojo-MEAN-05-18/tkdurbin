@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 import { Subscription } from 'rxjs';
 import { Question } from '../../../question';
+import { Answer } from '../../../answer';
+import { AnswerService } from '../../../services';
+
 @Component({
   selector: 'app-question-answer',
   templateUrl: './question-answer.component.html',
@@ -14,10 +17,11 @@ export class QuestionAnswerComponent implements OnInit {
 
   selectedAnswer: Answer;
 
-  constructor(private answerService: AnswerService,) { }
+  constructor(private answerService: AnswerService,
+  ) { }
 
   ngOnInit() {
-    this.sub = this.answerService.getQuestions().subscribe(questions => {
+    this.sub = this.answerService.getAnswers().subscribe(answers => {
       this.answers = answers;
       this.answers.forEach(answer => {
         // answer.author = this.titleize.transform(answer.author);

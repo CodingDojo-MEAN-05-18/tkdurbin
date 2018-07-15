@@ -15,7 +15,7 @@ import { LoginComponent } from './home/login/login.component';
 import { RegisterComponent } from './home/register/register.component';
 import { NavComponent } from './nav/nav.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { QuestionAnswerComponent } from './questions/question-answer/question-answer.component';
+import { QuestionAnswerComponent } from './questions/question-detail/question-answer/question-answer.component';
 import { LandingComponent } from './home/landing/landing.component';
 
 @NgModule({

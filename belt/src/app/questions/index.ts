@@ -1,7 +1,7 @@
 import { QuestionNewComponent } from './question-new/question-new.component';
 import { QuestionListComponent } from './question-list/question-list.component';
 import { QuestionDetailComponent } from './question-detail/question-detail.component';
-import { QuestionAnswerComponent } from './question-answer/question-answer.component';
+import { QuestionAnswerComponent } from './question-detail/question-answer/question-answer.component';
 
 export const components: any[] = [
   QuestionDetailComponent,
@@ -13,4 +13,4 @@ export const components: any[] = [
 export * from './question-detail/question-detail.component';
 export * from './question-list/question-list.component';
 export * from './question-new/question-new.component';
-export * from './question-answer/question-answer.component';
+export * from './question-detail/question-answer/question-answer.component';
