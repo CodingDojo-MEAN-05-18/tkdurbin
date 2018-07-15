@@ -28,13 +28,13 @@
     </thead>
 
     <tbody>
-      <tr *ngFor='let book of books | search: filter' (click)='onSelect(book)' [routerLink]="book._id">
+      <tr *ngFor='let book of books | search: filter' (click)='onSelect(book)' [routerLink]='book._id'>
         <td>{{book._id}}</td>
         <td>{{book.title | titleize:['the','a'] }}</td>
         <td>{{book.author | titleize}}</td>
         <td>{{book.year}}</td>
-        <td> (click)='onClick($event)'>
-          <button (click)='onDelete(book)'>Delete</button>
+        <td (click)='onClick($event)'>
+          <button *ngIf='authed; else login' (click)='onDelete(book)'>Delete</button>
         </td>
       </tr>
     </tbody>

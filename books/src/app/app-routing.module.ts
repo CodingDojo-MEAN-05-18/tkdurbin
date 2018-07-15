@@ -28,7 +28,7 @@ const routes: Routes = [
       },
       {
         // path: 'books/:id',
-        path: ':book/:id',
+        path: ':id',
         component: fromBooks.BookdetailComponent,
         resolve: {
           book: BookResolve,
