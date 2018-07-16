@@ -31,7 +31,7 @@ export class AppComponent {
     },
     {
       address: 'gabe@newel.com',
-      importacne: false,
+      importance: false,
       subject: 'HL3!',
       content: 'Just kidding...'
     }

@@ -7,29 +7,41 @@ import { OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'app';
+  boxArray = [];
 
-  squares: Array<string> = [];
-
-  setColors(): Array<string> {
-    for (let i = 0; i < 10; i++) {
-      const randomNumber = (Math.floor(Math.random() * 5)) + 1;
-      if (randomNumber === 1) {
-        this.squares.push('green');
-      } else if (randomNumber === 2) {
-        this.squares.push('lightblue');
-      } else if (randomNumber === 3) {
-        this.squares.push('yellow');
-      } else if (randomNumber === 4) {
-        this.squares.push('red');
-      } else {
-        this.squares.push('darkgrey');
+  fillBoxArray() {
+    for (let y = 0; y < 20; y++) {
+      const randNum = (Math.floor(Math.random() * 12) ) + 1;
+      if (randNum === 1) {
+        this.boxArray.push('Red');
+      } else if (randNum === 2) {
+        this.boxArray.push('OrangeRed');
+      } else if (randNum === 3) {
+        this.boxArray.push('Orange');
+      } else if (randNum === 4) {
+        this.boxArray.push('SandyBrown');
+      } else if (randNum === 5) {
+        this.boxArray.push('Yellow');
+      } else if (randNum === 6) {
+        this.boxArray.push('YellowGreen');
+      } else if (randNum === 7) {
+        this.boxArray.push('Green');
+      } else if (randNum === 8) {
+        this.boxArray.push('SeaGreen');
+      } else if (randNum === 9) {
+        this.boxArray.push('Blue');
+      } else if (randNum === 10) {
+        this.boxArray.push('BlueViolet');
+      } else if (randNum === 11) {
+        this.boxArray.push('Purple');
+      } else if (randNum === 12) {
+        this.boxArray.push('MediumVioletRed');
       }
     }
-    return;
   }
 
   ngOnInit() {
-    this.setColors();
+    this.fillBoxArray();
   }
+
 }
