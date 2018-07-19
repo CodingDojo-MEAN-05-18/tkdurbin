@@ -18,7 +18,9 @@ import { DeltaComponent } from './delta/delta.component';
     DeltaComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
