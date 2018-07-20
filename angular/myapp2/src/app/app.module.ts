@@ -6,13 +6,15 @@ import { TaskComponent } from './task/task.component';
 import { TaskListComponent } from './task/task-list/task-list.component';
 import { TaskNewComponent } from './task/task-new/task-new.component';
 import { TaskService } from './task.service';
+import { DetailComponent } from './task/detail/detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
     TaskListComponent,
-    TaskNewComponent
+    TaskNewComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule

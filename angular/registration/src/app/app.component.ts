@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { User } from './user';
+import { States } from './states';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  states = States;
+  user = new User();
+  // title = 'Registration App';
+  newUser: Object;
+
+  onSubmit() {
+    console.log('form Submitted');
+    this.newUser = this.user;
+    this.user = new User();
+  }
 }

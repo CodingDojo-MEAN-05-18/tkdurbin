@@ -1,20 +1,172 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<!-->
+<app-root></app-root>-->
+<div>
+  <h1>Registration</h1>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+<div *ngIf="newUser" [ngClass]="{success:true}">
+  Thank you for registering with us {{newUser.firstName}}. We just sent you a confirmation email at {{newUser.email}}, and
+  we will send all mail to {{newUser.address1}},
+  <span *ngIf="user.address2">{{newUser.address2}} </span>{{newUser.city}},{{newUser.state}}.
+  <br>
+  <br> Have a wonderful day!
+</div>
+
+
+<section>
+  <fieldset>
+    <legend>
+      <h2>Account Information</h2>
+    </legend>
+    <div [ngClass]="{
+      'leftSpace': true,
+      'right': true,
+      'share': true
+    }">
+
+      <form (submit)="onSubmit()" #formData='ngForm'>
+
+        <div [ngClass]="{
+          'row': true
+        }">
+          <label for="firstName">*First Name: </label>
+          <input type="text" name="firstName" required [(ngModel)]="user.firstName" #firstName="ngModel" />
+        </div>
+
+        <div [ngClass]="{
+          'row': true
+        }">
+          <label for="lastName">*Last Name: </label>
+          <input type="text" name="lastName" required [(ngModel)]="user.lastName" #lastName="ngModel">
+        </div>
+
+        <div [ngClass]="{
+          'row': true
+        }">
+          <label for="email">*Email Address: </label>
+          <input type="text" name="email" required pattern='^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$' [(ngModel)]="user.email"
+            #email="ngModel">
+        </div>
+
+        <div [ngClass]="{
+          'row': true
+        }">
+          <label for="password">*Password: </label>
+          <input type="password" name="password" required minlength="16" [(ngModel)]="user.password" #password="ngModel">
+        </div>
+
+        <div [ngClass]="{
+          'row': true
+        }">
+          <label for="passConfirm">*Passoword Confirmation: </label>
+          <input type="password" name="passConfirm" required [pattern]="password.value" [(ngModel)]="passConfirm" #passConf="ngModel">
+        </div>
+
+        <div [ngClass]="{
+          'row': true
+        }">
+          <label for="address1">*Street Address: </label>
+          <input type="text" name="address1" required [(ngModel)]="user.address1" #address1="ngModel">
+        </div>
+
+        <div [ngClass]="{
+          'row': true
+        }">
+          <label for="address2">Unit/Apt#: </label>
+          <input type="text" name="address2" [(ngModel)]="user.address2" #address2="ngModel">
+        </div>
+
+        <div [ngClass]="{
+          'row': true
+        }">
+          <label for="city">*City: </label>
+          <input type="text" name="city" required [(ngModel)]="user.city" #city="ngModel">
+        </div>
+
+        <div [ngClass]="{
+          'row': true
+        }">
+          <label for="state">*State: </label>
+          <select name="state" required [(ngModel)]="user.state" #state="ngModel">
+            <option *ngFor="let state of states" value='{{state}}'>{{state}}</option>
+          </select>
+        </div>
+
+        <div [ngClass]="{
+          'row': true
+        }">
+          <label for="lucky">*I'm feeling lucky: </label>
+          <input type="radio" name="lucky" value="true" required [(ngModel)]="user.lucky" #lucky="ngModel">Yes
+          <input type="radio" name="lucky" value="false" required [(ngModel)]="user.lucky" #lucky="ngModel">No
+        </div>
+
+        <button *ngIf="(formData.valid)">REGISTER</button>
+
+      </form>
+    </div>
+
+    <!-- form elements above here -->
+    <!-- Validations errors reporting below here. -->
+    <!-- STILL NEED TO FIND A WAY TO PREVENT ERRORS FROM APPEARING ON FORM SUBMIT -->
+    <!-- probably there is a way to reset the ndModel -->
+
+    <div [ngClass]="{
+      'leftSmallSpace': true,
+      'top': true,
+      'right': true,
+      'share': true
+    }">
+      <div [ngClass]="{
+      'vertSpace': true
+    }"></div>
+
+      <div [ngClass]="{'row': true}">
+        <p *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="red">
+          First Name is required.
+        </p>
+      </div>
+
+      <div [ngClass]="{'row': true}">
+        <p *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="red">
+          Last Name is required.
+        </p>
+      </div>
+
+      <div [ngClass]="{'row': true}">
+        <p *ngIf="email.invalid && (email.dirty || email.touched)" class="red">
+          Valid Email Address is required.
+        </p>
+      </div>
+
+      <div [ngClass]="{'row': true}">
+        <p *ngIf="password.invalid && (password.dirty || password.touched)" class="red">
+          Valid Password is required. (16+ characters)
+        </p>
+      </div>
+
+      <div [ngClass]="{'row': true}">
+        <p *ngIf="passConf.invalid && (passConf.dirty || passConf.touched)" class="red">
+          Password Confirmation must match the Password provided.
+        </p>
+      </div>
+
+      <div [ngClass]="{'row': true}">
+        <p *ngIf="address1.invalid && (address1.dirty || address1.touched)" class="red">
+          Street Address is required.
+        </p>
+      </div>
+
+      <div [ngClass]="{'row': true}">
+        <p *ngIf="city.invalid && (city.dirty || city.touched)" class="red">
+          City is required.
+        </p>
+      </div>
+
+      <div [ngClass]="{'row': true}">
+        <p *ngIf="(state.invalid || state.value === 'Not_Selected') && (state.dirty || state.touched)" class="red">
+          State selection is required.
+        </p>
+      </div>
+    </div>
+  </fieldset>
+</section>
